@@ -1,4 +1,4 @@
-{% extends "accounts/base.html" %} {% block title %}
+{% extends "SVDSystem/base.html" %} {% block title %}
 <title>Registration</title>
 {% endblock %} {% block style %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -14,13 +14,13 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    background: #7abecc !important;
+    background: #f8f9fa !important;
   }
   .user_card {
     width: 350px;
     margin-top: auto;
     margin-bottom: auto;
-    background: #74cfbf;
+    background: white;
     position: relative;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@
   }
 
   #form-title {
-    color: #fff;
+    color: black;
   }
   .login_btn {
     width: 100%;
@@ -69,14 +69,17 @@
 <li class="nav-item active">
   <a class="nav-link" aria-current="page" href="/">Home</a>
 </li>
-{% endblock %} {% block navcontent %}
-<li class="nav-item active">
-  <a class="nav-link" aria-current="page" href="/">Home</a>
-</li>
-{% endblock %}{% block content %}
+{% endblock %} {% block content %}
 <div class="container h-100">
   <div class="d-flex justify-content-center h-100">
     <div class="user_card">
+      <div class="row">
+        <img
+          style="height: 200px; width: 200px; margin: auto; padding: 20px"
+          src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRaNQ8Ii7z34SoaA_la3vYZQTFPiiUBI2onw4HG4Kqv3F2lRiE9"
+          alt=""
+        />
+      </div>
       <div class="d-flex justify-content-center">
         <h3 id="form-title">REGISTER ACCOUNT</h3>
       </div>

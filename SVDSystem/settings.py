@@ -56,7 +56,7 @@ ROOT_URLCONF = "SVDSystem.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": ['SVDSystem/templates'],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

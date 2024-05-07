@@ -1,0 +1,101 @@
+{% extends "SVDSystem/base.html" %} {% block title%}
+<title>Add Cameras</title>
+<script>
+  window.console = window.console || function (t) {};
+</script>
+<script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+{%endblock%} {% block style%} {%endblock%} {% block navcontent%}
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+</li>
+{%endblock%} {% block navcontentleft%}
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="/">Home</a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="{% url 'cameras' %}">Cameras</a>
+</li>
+{%endblock%} {% block content%}
+
+<form method="post" id="contact" action="">
+  {% csrf_token %}
+  <center>
+    <h3>
+      <i><b>Add Camera</b></i>
+    </h3>
+  </center>
+  <fieldset>
+    <h6>Name :</h6>
+    <input
+      placeholder="Name"
+      type="text"
+      tabindex="1"
+      name="name"
+      required
+      autofocus
+    />
+  </fieldset>
+
+  <fieldset>
+    <h6>Make :</h6>
+    <input
+      placeholder="Make"
+      type="text"
+      tabindex="2"
+      name="make"
+      required
+      autofocus
+    />
+  </fieldset>
+  <fieldset>
+    <h6>Camera Model :</h6>
+    <input
+      placeholder="Camera Model"
+      type="text"
+      tabindex="3"
+      name="camera_model"
+      required
+    />
+  </fieldset>
+  <fieldset>
+    <h6>Zoom :</h6>
+    <input placeholder="Zoom" type="text" tabindex="4" name="zoom" required />
+  </fieldset>
+  <fieldset>
+    <h6>I/P Address :</h6>
+    <input
+      placeholder="I/P Address"
+      type="text"
+      name="ip"
+      minlength="7"
+      maxlength="15"
+      size="15"
+      pattern="^((\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$"
+    />
+    <!--    <input placeholder="ip" type="url" tabindex="4" required> -->
+  </fieldset>
+  <fieldset>
+    <!--   <textarea placeholder="Type your message here...." tabindex="5" required></textarea>   -->
+  </fieldset>
+  <fieldset>
+    <!-- <button class="cancel-button" a href="{{ view.get_success_url }}"><span><i><b>Cancel</b></i> </span></button> -->
+  </fieldset>
+
+  <!--    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Submit</button> -->
+  <button class="submit-button" form="contact">
+    <span
+      ><i><b>Submit</b></i>
+    </span>
+  </button>
+  <button class="cancel-button" a href="{% url 'cameras' %}">
+    <span
+      ><i><b>Cancel</b></i>
+    </span>
+  </button>
+</form>
+
+{%endblock%}
