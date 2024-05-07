@@ -1,0 +1,7 @@
+{% extends "accounts\base.html" %} {% block title %}
+<title>Home</title>
+{% endblock %} {% block navcontent %}
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+</li>
+{% endblock %}
