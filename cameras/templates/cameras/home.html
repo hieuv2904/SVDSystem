@@ -51,8 +51,14 @@
   </div>
 </nav>
 
-<video autoplay="true" id="videoElement"></video>
+<div class="row">
+  <div class="col"><img src="{% url 'cam0' %}" /></div>
 
+  <div class="col"><img src="{% url 'cam1' %}" /></div>
+  <div class="col"><img src="{% url 'cam2' %}" /></div>
+</div>
+
+{% comment %}
 <script>
   var video = document.querySelector("#videoElement");
 
@@ -67,4 +73,4 @@
       });
   }
 </script>
-{% endblock%}
+{% endcomment %} {% endblock%}
