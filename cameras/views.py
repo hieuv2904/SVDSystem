@@ -23,6 +23,7 @@ def home(request):
 def homePage(request):
     return render(request, 'cameras/homePage.html')
 
+@login_required(login_url='homePage')
 def add_camera(request):
     if request.method=="POST":
         form = Add_camera_Forms(request.POST)
@@ -32,4 +33,4 @@ def add_camera(request):
     else:
         form = Add_camera_Forms()
 
-    return render(request,'cameras/add_camera.html',{"New_Camera_Form":form})
+    return render(request,'cameras/add_camera.html', {"New_Camera_Form":form})
