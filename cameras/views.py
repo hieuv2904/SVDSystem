@@ -37,14 +37,20 @@ def save_image(camID,frame):
     # video.release()
 
 def gen(camID):
+    images_list = []
     video = cv2.VideoCapture(camID)
     while True:
         time.sleep(0.5)
         success, image = video.read()
-        image_dir = f"./images/{camID}"
-        save_image(camID, image)
-        last_image = os.path.join(image_dir, os.listdir(image_dir)[-1])
-        frame_flip = cv2.imread(last_image)
+        # image_dir = f"./images/{camID}"
+        # save_image(camID, image)
+        # last_image = os.path.join(image_dir, os.listdir(image_dir)[-1])
+        if (len(images_list) < 8):
+            images_list.append(image)
+        else:
+            images_list.pop(0)
+            images_list.append(image)
+        frame_flip = images_list[-1]
         text = f"Camera {camID}"
         font = cv2.FONT_HERSHEY_SIMPLEX
         font_scale = 1
@@ -77,7 +83,7 @@ def Cam0(request):
 
 def Cam1(request):
     if check_available_sources(1):
-        return StreamingHttpResponse(gen(1),
+        return StreamingHttpResponse(gen(3),
 					content_type='multipart/x-mixed-replace; boundary=frame')
     
 def Cam2(request):
