@@ -1,0 +1,50 @@
+{% extends "SVDSystem/base.html" %} {% block title%}
+<title>Add Cameras</title>
+{%endblock%} {% block style%} {%endblock%} {% block navcontent%}
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
+</li>
+{%endblock%} {% block navcontentleft%}
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="/">Home</a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" aria-current="page" href="{% url 'cameras' %}">Cameras</a>
+</li>
+{%endblock%} {% block content%}
+<div class="row">
+  <div class="col-md">
+    <div class="card card-body">
+      <h5>Logs</h5>
+    </div>
+    <div class="card card-body">
+      <table class="table">
+        <tr>
+          <th>Camera</th>
+          <th>Action</th>
+          <th>Start/End</th>
+          <th>Time</th>
+        </tr>
+        {% for i in logs %}
+        <tr>
+          <td>{{i.camera_number}}</td>
+          <td>{{i.alert}}</td>
+          <td>{{i.transition}}</td>
+          <td>{{i.time}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+{%endblock%}

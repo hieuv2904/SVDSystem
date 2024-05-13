@@ -2,14 +2,14 @@
 <title>Home</title>
 {% endblock %} {% block style %}
 <style>
-  #container {
+  .container-cam {
     margin: 0px auto;
     width: 500px;
     height: 375px;
   }
-  #videoElement {
-    width: 500px;
-    height: 375px;
+  .videoElement {
+    width: 500px !important;
+    height: 375px !important;
     background-color: #666;
     border-radius: 5px;
   }
@@ -22,9 +22,7 @@
   <a class="nav-link" aria-current="page" href="{% url 'cameras' %}">Cameras</a>
 </li>
 <li class="nav-item active">
-  <a class="nav-link" aria-current="page" href="{% url 'add_camera' %}"
-    >Add Camera</a
-  >
+  <a class="nav-link" aria-current="page" href="{% url 'alertLogs' %}">Logs</a>
 </li>
 {% endblock%} {% block navcontent %}
 <li class="nav-item active">
@@ -41,21 +39,17 @@
     </p>
     <br />
   </div>
-  <div class="input-group">
-    <span class="input-group-text" id="basic-addon1" style="width: 200px"
-      >Time User Login</span
-    >
-    <p type="text" class="form-control" aria-describedby="basic-addon1">
-      {{loginTime}}
-    </p>
-  </div>
 </nav>
 
-<div class="row">
-  <div class="col"><img src="{% url 'cam0' %}" /></div>
-
-  <div class="col"><img src="{% url 'cam1' %}" /></div>
-  <div class="col"><img src="{% url 'cam2' %}" /></div>
+<div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-0">
+  <div class="col"><img class="videoElement" src="{% url 'cam0' %}" /></div>
+  <div class="col"><img class="videoElement" src="{% url 'cam1' %}" /></div>
+  <div class="col"><img class="videoElement" src="{% url 'cam2' %}" /></div>
+  {% comment %}
+  <div class="col"><img class="videoElement" src="{% url 'cam3' %}" /></div>
+  <div class="col"><img class="videoElement" src="{% url 'cam4' %}" /></div>
+  <div class="col"><img class="videoElement" src="{% url 'cam5' %}" /></div>
+  {% endcomment %}
 </div>
 
 {% comment %}
