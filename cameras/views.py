@@ -3,7 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse,HttpResponseRedirect,StreamingHttpResponse,HttpRequest
 from django.template import loader
 from .models import *
-from .forms import *
+
 from .utils import *
 import cv2
 import os
@@ -61,7 +61,7 @@ def gen(camID):
         y = text_height + 10  
         position = (x, y)
         frame_flip = cv2.putText(frame_flip, text, position, font, font_scale, color, thickness, cv2.LINE_AA)
-        frame_flip = draw_bbox(frame_flip)
+        frame_flip = draw_bbox(frame_flip, camID)
         ret, jpeg = cv2.imencode('.jpg', frame_flip)
         frame = jpeg.tobytes()
         yield (b'--frame\r\n'
@@ -125,13 +125,3 @@ def AlertLogs(request):
     logs = Alert_log.objects.all()
     return render(request,'cameras/alertLogs.html', {"logs": logs})
 
-def addLog(camID, alert, transition, time):
-    data = {
-        "time": time,
-        "alert": alert,
-        "camera_number": camID,
-        "transition": transition
-    }
-    form = AlertLogForms(data)
-    if form.is_valid():
-        form.save()

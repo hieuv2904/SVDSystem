@@ -9,4 +9,4 @@ from .models import *
 class AlertLogForms(forms.ModelForm):
     class Meta:
         model = Alert_log
-        fields = "__all__"
+        fields = ['alert', 'camera_number', 'clip_link']

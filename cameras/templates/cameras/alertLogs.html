@@ -22,15 +22,15 @@
         <tr>
           <th>Camera</th>
           <th>Action</th>
-          <th>Start/End</th>
           <th>Time</th>
+          <th>Clip link</th>
         </tr>
         {% for i in logs %}
         <tr>
           <td>{{i.camera_number}}</td>
           <td>{{i.alert}}</td>
-          <td>{{i.transition}}</td>
           <td>{{i.time}}</td>
+          <td>{{i.clip_link}}</td>
         </tr>
         {% endfor %}
       </table>
