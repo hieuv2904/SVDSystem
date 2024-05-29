@@ -1,7 +1,6 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse,HttpResponseRedirect,StreamingHttpResponse,HttpRequest
-from django.template import loader
+from django.http import JsonResponse,StreamingHttpResponse
 from .models import *
 
 from .utils import *
@@ -125,3 +124,8 @@ def AlertLogs(request):
     logs = Alert_log.objects.all()
     return render(request,'cameras/alertLogs.html', {"logs": logs})
 
+@login_required(login_url='homePage')
+def get_alert_logs(request):
+    logs = Alert_log.objects.values('camera_number', 'alert', 'time', 'clip_link')  # Adjust fields as necessary
+    logs_list = list(logs)
+    return JsonResponse({'logs': logs_list})

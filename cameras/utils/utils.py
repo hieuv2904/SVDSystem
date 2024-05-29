@@ -10,6 +10,8 @@ def draw_bbox(image, camID):
     class_id = boxes.cls.tolist()
     box = boxes.xyxy
     flag = 0
+    count = 0
+
     for item in range(len(class_id)):
         class_name = results[0].names[class_id[item]]
         bbox = box[item]
@@ -23,10 +25,12 @@ def draw_bbox(image, camID):
         thickness = 2
         cv2.putText(image, text, (bbox[0], bbox[1] - 5), font, font_scale, (0, 255, 0), thickness, cv2.LINE_AA)
 
-        if class_name == 'person': 
+        if class_name == 'person':
+            flag = 1
             addLog(camID, class_name, 'demo/link')
             print('alert added')
         # print(f'Class name: {class_name}, bbox: {bbox}')
+
     
     return image
 

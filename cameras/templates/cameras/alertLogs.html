@@ -1,6 +1,7 @@
 {% extends "SVDSystem/base.html" %} {% block title%}
 <title>Add Cameras</title>
-{%endblock%} {% block style%} {%endblock%} {% block navcontent%}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{%endblock%} {% block navcontent%}
 <li class="nav-item active">
   <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
 </li>
@@ -18,7 +19,7 @@
       <h5>Logs</h5>
     </div>
     <div class="card card-body">
-      <table class="table">
+      <table class="table" id="log-list">
         <tr>
           <th>Camera</th>
           <th>Action</th>
@@ -46,5 +47,45 @@
 <br />
 <br />
 <br />
+<script>
+  // Function to fetch logs from the server and update the table
+  function fetchLogs() {
+    $.ajax({
+      url: '{% url "get_alert_logs" %}',
+      method: "GET",
+      success: function (data) {
+        var logs = data.logs;
+        var logList = $("#log-list");
+        // Clear all rows except the header
+        logList.find("tr:gt(0)").remove();
+        for (var i = 0; i < logs.length; i++) {
+          var log = logs[i];
+          var newRow =
+            "<tr>" +
+            "<td>" +
+            log.camera_number +
+            "</td>" +
+            "<td>" +
+            log.alert +
+            "</td>" +
+            "<td>" +
+            log.time +
+            "</td>" +
+            "<td>" +
+            log.clip_link +
+            "</td>" +
+            "</tr>";
+          logList.append(newRow);
+        }
+      },
+    });
+  }
+
+  // Fetch logs initially
+  fetchLogs();
+
+  // Set interval to fetch logs every 5 seconds
+  setInterval(fetchLogs, 5000);
+</script>
 
 {%endblock%}
