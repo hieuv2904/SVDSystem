@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse,StreamingHttpResponse
+from django.core.paginator import Paginator
 from .models import *
 
 from .utils import *
@@ -121,11 +122,25 @@ def homePage(request):
 
 @login_required(login_url='homePage')
 def AlertLogs(request):
-    logs = Alert_log.objects.all()
-    return render(request,'cameras/alertLogs.html', {"logs": logs})
+    logs = Alert_log.objects.all().order_by('-time')
+    paginator = Paginator(logs, 50)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request,'cameras/alertLogs.html', {"page_obj": page_obj})
 
 @login_required(login_url='homePage')
 def get_alert_logs(request):
-    logs = Alert_log.objects.values('camera_number', 'alert', 'time', 'clip_link')  # Adjust fields as necessary
-    logs_list = list(logs)
-    return JsonResponse({'logs': logs_list})
+    page_number = request.GET.get('page', 1)
+    logs = Alert_log.objects.all().order_by('-time')
+    paginator = Paginator(logs, 50)  # Show 50 logs per page
+
+    page_obj = paginator.get_page(page_number)
+    logs_list = list(page_obj.object_list.values('camera_number', 'alert', 'time', 'clip_link'))
+
+    return JsonResponse({
+        'logs': logs_list,
+        'has_next': page_obj.has_next(),
+        'has_previous': page_obj.has_previous(),
+        'page_number': page_obj.number,
+        'total_pages': paginator.num_pages
+    })
