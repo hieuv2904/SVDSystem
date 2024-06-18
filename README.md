@@ -3,6 +3,15 @@ Capstone project in HCMUT
 
 ### Model
 This system use YOWOv2 trained on our custom school violence dataset
+<br>
+For more infomation about using this model, go to: https://github.com/yjh0410/YOWOv2
+
+### Dataset on violence behaviour in school environments
+
+Training and validation : https://drive.google.com/drive/folders/1-2Sjv0eNIwC8eCxxqob_z7mbS8mUTZXw?usp=sharing
+<br>
+Testing : https://drive.google.com/drive/folders/1HlimAXW3CdBZnuIMxnJrGWIUg9TK-Fio?usp=sharing
+
 
 ### Alert 
 When frame has object , which class "bully", this frame has 1 point. Otherwise , this frame has 0 point.
