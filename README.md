@@ -24,9 +24,11 @@ We use Django to build our web application
 Link Drive : https://drive.google.com/file/d/12mCQVTvjSdURxttv_2uezwtH-QemvgOB/view?usp=drive_link
 
 ### References
+```
 @article{yang2023yowov2,
   title={YOWOv2: A Stronger yet Efficient Multi-level Detection Framework for Real-time Spatio-temporal Action Detection},
   author={Yang, Jianhua and Kun, Dai},
   journal={arXiv preprint arXiv:2302.06848},
   year={2023}
 }
+```
