@@ -9,8 +9,7 @@ When frame has object , which class "bully", this frame has 1 point. Otherwise ,
 With 16 continuous frame, we have a list points of 16 frame, then we fit it to the pretrained ANN to predict the output has target 1 (corresponding on bullying behaviour), or 0 (corresponding on not bullying behaviour).
 
 ### Web App 
-Using Django for system multi-cam.
-
+We use Django to build our web application
 
 ### Demo video (run test_video_ava.py)
 Link Drive : https://drive.google.com/file/d/12mCQVTvjSdURxttv_2uezwtH-QemvgOB/view?usp=drive_link
