@@ -22,6 +22,11 @@ We use Django to build our web application
 
 ### Demo video (run test_video_ava.py)
 Link Drive : https://drive.google.com/file/d/12mCQVTvjSdURxttv_2uezwtH-QemvgOB/view?usp=drive_link
+<br> 
+Some demo images
+<div align="center" style="width:image width px;">
+  <img  src="https://github.com/hieuv2904/VISa-server/blob/main/images/image.jpg" width=240>
+</div>
 
 ### References
 ```
