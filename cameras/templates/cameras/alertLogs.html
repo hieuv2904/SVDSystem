@@ -1,6 +1,14 @@
 {% extends "SVDSystem/base.html" %} {% block title%}
 <title>Add Cameras</title>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+  .long-text {
+    display: inline-block;
+    max-width: 200px; /* Adjust the max-width as needed */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+</style>
 {%endblock%} {% block navcontent%}
 <li class="nav-item active">
   <a class="nav-link" aria-current="page" href="{% url 'logout' %}">Logout</a>
@@ -19,26 +27,29 @@
       <h5>Logs</h5>
     </div>
     <div class="card card-body">
-      <table class="table" id="log-list">
-        <thead>
-          <tr>
-            <th>Camera</th>
-            <th>Action</th>
-            <th>Time</th>
-            <th>Clip link</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for i in page_obj %}
-          <tr>
-            <td>{{ i.camera_number }}</td>
-            <td>{{ i.alert }}</td>
-            <td>{{ i.time }}</td>
-            <td>{{ i.clip_link }}</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table" id="log-list">
+          <thead>
+            <tr>
+              <th>Camera</th>
+              <th>Action</th>
+              <th>Time</th>
+              <th>Clip link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for i in page_obj %}
+            <tr>
+              <td>{{ i.camera_number }}</td>
+              <td>{{ i.alert }}</td>
+              <td>{{ i.time }}</td>
+              <td class="long-text">{{ i.clip_link }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      
 
       <div id="pagination-controls">
         <button id="prev-page" disabled>Previous</button>

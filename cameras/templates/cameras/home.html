@@ -42,29 +42,27 @@
 </nav>
 
 <div class="row row-cols-1 row-cols-lg-2 row-cols-xxl-3 g-0">
+  
   <div class="col"><img class="videoElement" src="{% url 'cam0' %}" /></div>
+  
   <div class="col"><img class="videoElement" src="{% url 'cam1' %}" /></div>
-  <div class="col"><img class="videoElement" src="{% url 'cam2' %}" /></div>
   {% comment %}
+  
+  
+  <div class="col"><img class="videoElement" src="{% url 'cam2' %}" /></div>
+  
   <div class="col"><img class="videoElement" src="{% url 'cam3' %}" /></div>
   <div class="col"><img class="videoElement" src="{% url 'cam4' %}" /></div>
   <div class="col"><img class="videoElement" src="{% url 'cam5' %}" /></div>
   {% endcomment %}
 </div>
 
-{% comment %}
-<script>
-  var video = document.querySelector("#videoElement");
 
-  if (navigator.mediaDevices.getUserMedia) {
-    navigator.mediaDevices
-      .getUserMedia({ video: true })
-      .then(function (stream) {
-        video.srcObject = stream;
-      })
-      .catch(function (err0r) {
-        console.log("Something went wrong!");
-      });
-  }
-</script>
-{% endcomment %} {% endblock%}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+{% endblock%}
