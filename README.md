@@ -25,7 +25,7 @@ Link Drive : https://drive.google.com/file/d/12mCQVTvjSdURxttv_2uezwtH-QemvgOB/v
 <br> 
 Some demo images
 <div align="center" style="width:image width px;">
-  <img  src="[https://github.com/hieuv2904/VISa-server/blob/main/images/image.jpg](https://github.com/hieuv2904/SVDSystem/blob/main/images/demo1.png)" width=480>
+  <img  src="[https://github.com/hieuv2904/VISa-server/blob/main/images/image.jpg](https://github.com/hieuv2904/SVDSystem/blob/main/images/demo1.png)" width=240>
 </div>
 
 ### References
